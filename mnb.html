@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vigor | Vision</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand"><span class="highlight">Vigor</span></a>
+        <p>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </p>
+
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse-main">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="active" href="link1.html"><span class="highlight">Vision</span></a></li>
+        <li><a href="link2.html"><span class="highlight">Tips</span></a></li>
+        <li><a href="link3.html"><span class="highlight">Food</span></a></li>
+        <li><a href="link4.html"><span class="highlight">Products</span></a></li>
+        <li><a href="smartdoc.html"><span class="highlight">Quiz (smart doc)</span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div id="vision">
+  <div class="landing-text2">
+    <div id="frame001">
+        <div id="text001">
+            <h2>Quiz</h2>
+            Question: <text id="number001">0</text><br />
+            Score: <text id="score001">0</text>
+        <hr />
+                <div id="message001">Click Begin to start</div><br />
+            </div>
+        <div id="text002">
+            <div id="question001"></div>
+            <div id="option001"></div>
+            <div id="option002"></div>
+            <div id="option003"></div>
+            <div id="option004"></div>
+            <div id="answer001"></div>
+            <div id="text001">
+                <div id="disappear001"><button class="buttons001" onclick="begin001()">Begin</button></div>
+            </div>
+            <div id="next001"></div>
+        </div>
+        </div>
+
+    <script>
+        var q = ["What is 1 + 1?<br /><br />", "What is 2 + 2?<br /><br />", "What is 3 + 3?<br /><br />", "What is 4 + 4?<br /><br />", "What is 5 + 5?<br /><br />"];
+        var a1 = ["<button class=buttons002 onclick=q1c()>2</button>",
+                  "<button class=buttons002 onclick=q2c()>4</button>",
+                  "<button class=buttons002 onclick=q3c()>6</button>",
+                  "<button class=buttons002 onclick=q4i()>13</button>",
+                  "<button class=buttons002 onclick=q5i()>6</button>"];
+
+        var a2 = ["<button class=buttons002 onclick=q1i()>5</button>",
+                  "<button class=buttons002 onclick=q2i()>7</button>",
+                  "<button class=buttons002 onclick=q3i()>2</button>",
+                  "<button class=buttons002 onclick=q4c()>8</button>",
+                  "<button class=buttons002 onclick=q5c()>10</button>"];
+
+        var a3 = ["<button class=buttons002 onclick=q1i()>7</button>",
+                  "<button class=buttons002 onclick=q2i()>6</button>",
+                  "<button class=buttons002 onclick=q3i()>9</button>",
+                  "<button class=buttons002 onclick=q4i()>9</button>",
+                  "<button class=buttons002 onclick=q5i()>7</button>"];
+
+        var a4 = ["<button class=buttons002 onclick=q1i()>8</button>",
+                  "<button class=buttons002 onclick=q2i()>2</button>",
+                  "<button class=buttons002 onclick=q3i()>14</button>",
+                  "<button class=buttons002 onclick=q4i()>1</button>",
+                  "<button class=buttons002 onclick=q5i()>2</button>"];
+
+        var c = ["Correct", "Correct", "Correct", "Correct", "Correct"];
+        var i = ["Incorrect", "Incorrect", "Incorrect", "Incorrect", "Incorrect"];
+
+        var n = 0;
+        n++;
+        var s = 0;
+        s++;
+
+        function begin001() {
+            disappear001.innerHTML = "";
+            message001.innerHTML = "";
+            question001.innerHTML = q[0];
+            option001.innerHTML = a1[0];
+            option002.innerHTML = a2[0];
+            option003.innerHTML = a3[0];
+            option004.innerHTML = a4[0];
+            number001.innerHTML = n++;
+        }
+
+        function q1c() {
+            answer001.innerHTML = "<div id=green001>" + c[0] + "</div>";
+            option001.innerHTML = "";
+            option002.innerHTML = "";
+            option003.innerHTML = "";
+            option004.innerHTML = "";
+            next001.innerHTML = "<button class=buttons001 onclick=new002()>Next</button>";
+            score001.innerHTML = s++;
+        }
+
+        function q1i() {
+            answer001.innerHTML = "<div id=red001>" + i[0] + "</div>";
+            option001.innerHTML = "";
+            option002.innerHTML = "";
+            option003.innerHTML = "";
+            option004.innerHTML = "";
+            next001.innerHTML = "<button class=buttons001 onclick=new002()>Next</button>";
+        }
+
+        function new002() {
+            question001.innerHTML = q[1];
+            option001.innerHTML = a1[1];
+            option002.innerHTML = a2[1];
+            option003.innerHTML = a3[1];
+            option004.innerHTML = a4[1];
+            next001.innerHTML = "";
+            answer001.innerHTML = "";
+            number001.innerHTML = n++;
+        }
+
+        function q2c() {
+            answer001.innerHTML = "<div id=green001>" + c[1] + "</div>";
+            option001.innerHTML = "";
+            option002.innerHTML = "";
+            option003.innerHTML = "";
+            option004.innerHTML = "";
+            next001.innerHTML = "<button class=buttons001 onclick=new003()>Next</button>";
+            score001.innerHTML = s++;
+        }
+
+        function q2i() {
+            answer001.innerHTML = "<div id=red001>" + i[1] + "</div>";
+            option001.innerHTML = "";
+            option002.innerHTML = "";
+            option003.innerHTML = "";
+            option004.innerHTML = "";
+            next001.innerHTML = "<button class=buttons001 onclick=new003()>Next</button>";
+        }
+
+        function new003() {
+            question001.innerHTML = q[2];
+            option001.innerHTML = a1[2];
+            option002.innerHTML = a2[2];
+            option003.innerHTML = a3[2];
+            option004.innerHTML = a4[2];
+            next001.innerHTML = "";
+            answer001.innerHTML = "";
+            number001.innerHTML = n++;
+        }
+
+        function q3c() {
+            answer001.innerHTML = "<div id=green001>" + c[2] + "</div>";
+            option001.innerHTML = "";
+            option002.innerHTML = "";
+            option003.innerHTML = "";
+            option004.innerHTML = "";
+            next001.innerHTML = "<button class=buttons001 onclick=new004()>Next</button>";
+            score001.innerHTML = s++;
+        }
+
+        function q3i() {
+            answer001.innerHTML = "<div id=red001>" + i[2] + "</div>";
+            option001.innerHTML = "";
+            option002.innerHTML = "";
+            option003.innerHTML = "";
+            option004.innerHTML = "";
+            next001.innerHTML = "<button class=buttons001 onclick=new004()>Next</button>";
+        }
+
+        function new004() {
+            question001.innerHTML = q[3];
+            option001.innerHTML = a1[3];
+            option002.innerHTML = a2[3];
+            option003.innerHTML = a3[3];
+            option004.innerHTML = a4[3];
+            next001.innerHTML = "";
+            answer001.innerHTML = "";
+            number001.innerHTML = n++;
+        }
+
+        function q4c() {
+            answer001.innerHTML = "<div id=green001>" + c[3] + "</div>";
+            option001.innerHTML = "";
+            option002.innerHTML = "";
+            option003.innerHTML = "";
+            option004.innerHTML = "";
+            next001.innerHTML = "<button class=buttons001 onclick=new005()>Next</button>";
+            score001.innerHTML = s++;
+        }
+
+        function q4i() {
+            answer001.innerHTML = "<div id=red001>" + i[3] + "</div>";
+            option001.innerHTML = "";
+            option002.innerHTML = "";
+            option003.innerHTML = "";
+            option004.innerHTML = "";
+            next001.innerHTML = "<button class=buttons001 onclick=new005()>Next</button>";
+        }
+
+        function new005() {
+            question001.innerHTML = q[4];
+            option001.innerHTML = a1[4];
+            option002.innerHTML = a2[4];
+            option003.innerHTML = a3[4];
+            option004.innerHTML = a4[4];
+            next001.innerHTML = "";
+            answer001.innerHTML = "";
+            number001.innerHTML = n++;
+        }
+
+        function q5c() {
+            answer001.innerHTML = "<div id=green001>" + c[4] + "</div>";
+            option001.innerHTML = "";
+            option002.innerHTML = "";
+            option003.innerHTML = "";
+            option004.innerHTML = "";
+            next001.innerHTML = "<button class=buttons001 onclick=end001()>The End</button>";
+            score001.innerHTML = s++;
+        }
+
+        function q5i() {
+            answer001.innerHTML = "<div id=red001>" + i[4] + "</div>";
+            option001.innerHTML = "";
+            option002.innerHTML = "";
+            option003.innerHTML = "";
+            option004.innerHTML = "";
+            next001.innerHTML = "<button class=buttons001 onclick=end001()>The End</button>";
+        }
+
+        function end001() {
+            message001.innerHTML = "The quiz ends.";
+            question001.innerHTML = "";
+            option001.innerHTML = "";
+            option002.innerHTML = "";
+            option003.innerHTML = "";
+            option004.innerHTML = "";
+            next001.innerHTML = "<div id=text001>" + "<button class=buttons001 onclick=repeat001()>Repeat</button>" + "</div>";
+            answer001.innerHTML = "";
+        }
+
+        function repeat001() {
+            location.reload();
+        }
+    </script></div>
+</div>
+
+<footer class="container-fluid text-center">
+  <div class="row">
+    <div class="col-sm-4">
+      <br>
+      <h3><a href="../index.html"><span class="highlight">Home</span></a></h3>
+    </div>
+    <div class="col-sm-4">
+      <br>
+      <h3><a href="link5.html"><span class="highlight">Contact Us</span></a></h3>
+    </div>
+    <div class="col-sm-4">
+      <br>
+      <p>kan105@pitt.edu &copy;2018</p>
+    </div>
+  </div>
+
+  </footer>
+
+</body>
+</html>
